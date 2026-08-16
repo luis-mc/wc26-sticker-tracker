@@ -1,0 +1,57 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // The requester's collector handle, read from their own private profile doc
+    // (/users/{uid}/data/profile stores { v: { handle, ... } }). Cached per
+    // request, so referencing it in a query rule costs a single document read
+    // regardless of how many friendship docs are scanned.
+    function myHandle() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)/data/profile).data.v.handle;
+    }
+
+    // Private user data — only the owner can read or write
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Public shared snapshots — any signed-in user can read;
+    // only the owner (uid field must match the requester) can write
+    match /public/{docId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.resource.data.uid == request.auth.uid;
+    }
+
+    // Friendship / friend-request records, keyed by "handleA__handleB".
+    // A doc is created as a pending request by its initiator, accepted by the
+    // recipient, and deletable by either side. Every operation requires the
+    // requester's own handle to be one of the doc's two handles, so nobody can
+    // read, forge, or tamper with friendships they aren't part of.
+    match /friendships/{docId} {
+      allow read: if request.auth != null
+                  && myHandle() in resource.data.handles;
+
+      // Create only a pending request that you initiated and are part of.
+      allow create: if request.auth != null
+                    && myHandle() in request.resource.data.handles
+                    && request.resource.data.initiator == myHandle()
+                    && request.resource.data.status == "pending";
+
+      // Accept a request addressed to you: only the recipient (i.e. not the
+      // initiator) may flip a pending doc to accepted, and the participants and
+      // initiator must stay unchanged.
+      allow update: if request.auth != null
+                    && myHandle() in resource.data.handles
+                    && resource.data.status == "pending"
+                    && request.resource.data.status == "accepted"
+                    && resource.data.initiator != myHandle()
+                    && request.resource.data.handles == resource.data.handles
+                    && request.resource.data.initiator == resource.data.initiator;
+
+      // Either participant can decline, cancel, or remove the friendship.
+      allow delete: if request.auth != null
+                    && myHandle() in resource.data.handles;
+    }
+  }
+}
