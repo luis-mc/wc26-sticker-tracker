@@ -1,50 +1,142 @@
-# FIFA World Cup 2026 — Panini Sticker Tracker
+<div align="center">
 
-Track all **980 stickers** across 48 nations in the official Panini FIFA World Cup 2026 album. Mark what you own, log duplicates, and coordinate swaps with friends — synced to the cloud across all your devices.
+# ⚽ ALBUM '26
 
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?logo=firebase&logoColor=black)
-![Stickers](https://img.shields.io/badge/Stickers-980-F4C24A)
+### 980 stickers. 48 nations. One very determined kid.
 
-## Features
+**[👉 Open the app — ffwc26.luismc.net](https://ffwc26.luismc.net/)**
 
-### Collection
-- **Full 980-sticker checklist** — 9 Intro foils + 11 FIFA Museum foils + 48 teams × 20 stickers, with real player names from the official Panini checklist
-- **Toggle owned** — click a slot to mark it; confirmation step prevents accidental removal
-- **Duplicate tracking** — use +/− controls to record how many spare copies you hold
-- **Quick Add** — fast keyboard-friendly entry: pick a team, tap a sticker number; shows whether it's a new card or a duplicate
-- **Smart filters** — view All, Owned, or Missing; search by player name, team name, or sticker number across the full album
+![Stickers](https://img.shields.io/badge/Stickers-980-F4C24A?style=for-the-badge)
+![Teams](https://img.shields.io/badge/Nations-48-3ECF8E?style=for-the-badge)
+![Free](https://img.shields.io/badge/Price-free_forever-6FA8FF?style=for-the-badge)
 
-### Stats & exports
-- **Stats dashboard** — overall completion %, progress broken down by confederation, and the 6 nations closest to completion
-- **PDF export** — download your missing, collected, or duplicate sticker lists as a formatted A4 PDF (one-click from the Stats cards)
+</div>
 
-### Friends & swaps
-- **Accounts** — email/password sign-up with email verification; password reset via email
-- **Cloud sync** — collection, preferences, and public profile are stored in Firestore and cached locally; changes sync across all your devices with a 700 ms debounce
-- **Shareable handle** — choose a unique `@handle` at setup; share it so friends can find you
-- **Privacy controls** — independently toggle whether your owned list, missing list, and duplicates are visible to friends
-- **Friend requests** — send a request by handle; both sides see pending/incoming/outgoing state until accepted
-- **Real-time friend data** — friend cards update live via Firestore `onSnapshot`; manual refresh also available
-- **Swap engine** — overlaps a friend's duplicates with your missing list to build an instant request list; shows what you can offer back from your own spares
-- **Swap message composer** — generates a ready-to-send message in WhatsApp or plain-text email format; one-click copy or direct WhatsApp share
+---
 
-## Quick start
+## The story
+
+This started as a pet project.
+
+My kid and I bought the Panini FIFA World Cup 2026 album, and within about a week we were drowning. Piles of doubles on the kitchen table. A crumpled paper checklist that was already wrong. Standing in a shop with a packet in hand, squinting at a phone, going *"do we have MEX 14 or not?"*
+
+So one weekend I built us a tracker. Now it lives at **[ffwc26.luismc.net](https://ffwc26.luismc.net/)** and other people use it too. 🎉
+
+If you're a parent, a collector, or a nine-year-old with strong opinions about foil stickers — it's free, it's yours, go finish your album.
+
+---
+
+## 📸 Take a look
+
+### Know exactly where you stand
+
+Open the app and the whole album is right there: how many you've got, how many you still need, how many doubles are burning a hole in your pocket, and which groups are nearly done.
+
+![Home dashboard](docs/screenshots/home.jpg)
+
+### Add stickers as fast as you can open packets
+
+Tap a nation, tap a number. Done. No menus, no forms, no typing. Fast enough to keep up with a kid tearing through five packets in a row.
+
+![Add stickers](docs/screenshots/add.jpg)
+
+### Your whole album, one tap away
+
+Every team, every slot, every double. Search by player, team or sticker number. Filter to just what's missing when you're standing at the counter deciding whether to buy one more packet.
+
+![The album view](docs/screenshots/album.jpg)
+
+### Add your swap crew
+
+Cousins, classmates, the neighbour's kid, the dad from football practice. Add them by handle and your lists quietly link up.
+
+![Friends](docs/screenshots/friends.jpg)
+
+### The bit that actually finishes albums 🤝
+
+This is the magic trick. The app takes your missing list, overlaps it with your friend's doubles, and hands you the exact swap: **here's what to ask for, here's what you can give back.** One tap to copy it or fire it straight into WhatsApp.
+
+No more spreading 200 stickers across the floor to figure out who needs what.
+
+![Swap engine](docs/screenshots/swap.jpg)
+
+---
+
+## ✨ What it does
+
+🏆 **All 980 stickers, real names** — 9 intro foils, 11 FIFA Museum foils, and 48 nations × 20, with the actual player names off the official checklist
+
+⚡ **Add in two taps** — nation, number, in. Tells you instantly whether it's a new one or a double
+
+🎁 **Give Away mode** — hand a spare to a friend and take it off your pile in one tap
+
+🔍 **Check mode** — the shop-aisle lifesaver. "Do we already have this one?" Answered in a second
+
+📊 **Progress that motivates** — completion percentage, group-by-group bars, and the nations you're closest to finishing
+
+🤝 **Swap matching** — automatic overlap of your needs and their spares, with a ready-to-send WhatsApp or email message
+
+📄 **PDF lists** — export your missing / collected / duplicate lists to a clean A4 sheet. Print it, fold it, stick it in the album
+
+☁️ **Follows you everywhere** — phone in the shop, tablet on the sofa, laptop at the table. Same collection, always in sync
+
+🔒 **You choose what's shared** — show your doubles but hide your missing list, or share nothing at all. Your call
+
+---
+
+## 🚀 Getting started (30 seconds)
+
+1. Go to **[ffwc26.luismc.net](https://ffwc26.luismc.net/)**
+2. Sign up with your email
+3. Pick a `@handle` — that's how friends find you
+4. Start tapping in stickers
+
+That's it. No app store, no install, no cost.
+
+---
+
+## 🛠️ For the tinkerers
+
+Built with React 18, Vite and Firebase. Everything lives in `src/App.jsx` — sticker data, components, the lot.
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/wc26-sticker-tracker.git
 cd wc26-sticker-tracker
 npm install
-cp .env.example .env.local   # fill in your Firebase config values
+cp .env.example .env.local   # your Firebase config goes here
 npm run dev
 ```
 
-Open `http://localhost:5173` and start collecting.
+<details>
+<summary><strong>Album structure & customising the checklist</strong></summary>
 
-## Environment setup
+**980 stickers:**
 
-Copy `.env.example` to `.env.local` and fill in the values from Firebase Console → Project Settings → Your Apps → Web app config:
+| Section | Count |
+|---------|-------|
+| Introduction (foils) | 9 |
+| FIFA Museum (foils) | 11 |
+| 48 nations × 20 | 960 |
+| **Total** | **980** |
+
+Per team: `#1` Team Logo (foil) · `#2–12` Players · `#13` Team Photo · `#14–20` Players
+
+**Fixing a name?** Player names live in the `TD` array near the top of `src/App.jsx`:
+
+```js
+["CODE", "Team Name", "Group", "Confederation", "🇫🇱", "#color1", "#color2", [
+  "Player 1", ..., "Player 18"   // 18 players per team
+]]
+```
+
+Edit it directly if Panini issues a correction or you spot a typo. PRs welcome.
+
+</details>
+
+<details>
+<summary><strong>Environment variables</strong></summary>
+
+From Firebase Console → Project Settings → Your Apps → Web app config:
 
 ```
 VITE_API_KEY=...
@@ -55,59 +147,16 @@ VITE_MESSAGING_SENDER_ID=...
 VITE_APP_ID=...
 ```
 
-## Deploy
+Then `npm run build && firebase deploy`.
 
-```bash
-npm run build
-firebase deploy   # requires firebase-tools and an initialised project
-```
+</details>
 
-## Project structure
+---
 
-```
-├── index.html
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.jsx        # React root mount
-    ├── firebase.js     # Firebase initialisation and Auth/Firestore exports
-    └── App.jsx         # Full application — all components, sticker data, Firestore helpers
-```
+<div align="center">
 
-## Album structure (980 stickers)
+**Not affiliated with Panini or FIFA.** Just a dad, a kid, and 253 stickers still to go.
 
-| Section | Code | Count |
-|---------|------|-------|
-| Introduction (foils) | 00, FWC1–FWC8 | 9 |
-| FIFA Museum (foils) | FWC9–FWC19 | 11 |
-| Group A: Mexico, South Africa, Korea Republic, Czechia | MEX/RSA/KOR/CZE 1–20 | 80 |
-| Group B: Canada, Bosnia & Herzegovina, Qatar, Switzerland | CAN/BIH/QAT/SUI 1–20 | 80 |
-| Group C: Brazil, Morocco, Haiti, Scotland | BRA/MAR/HAI/SCO 1–20 | 80 |
-| Group D: USA, Paraguay, Australia, Türkiye | USA/PAR/AUS/TUR 1–20 | 80 |
-| Group E: Germany, Curaçao, Ivory Coast, Ecuador | GER/CUW/CIV/ECU 1–20 | 80 |
-| Group F: Netherlands, Japan, Sweden, Tunisia | NED/JPN/SWE/TUN 1–20 | 80 |
-| Group G: Belgium, Egypt, Iran, New Zealand | BEL/EGY/IRN/NZL 1–20 | 80 |
-| Group H: Spain, Cape Verde, Saudi Arabia, Uruguay | ESP/CPV/KSA/URU 1–20 | 80 |
-| Group I: France, Senegal, Iraq, Norway | FRA/SEN/IRQ/NOR 1–20 | 80 |
-| Group J: Argentina, Algeria, Austria, Jordan | ARG/ALG/AUT/JOR 1–20 | 80 |
-| Group K: Portugal, DR Congo, Uzbekistan, Colombia | POR/COD/UZB/COL 1–20 | 80 |
-| Group L: England, Croatia, Ghana, Panama | ENG/CRO/GHA/PAN 1–20 | 80 |
-| **Total** | | **980** |
+MIT · [ffwc26.luismc.net](https://ffwc26.luismc.net/)
 
-Per team: #1 Team Logo (foil) · #2–12 Players · #13 Team Photo · #14–20 Players
-
-## Customising the checklist
-
-Player names live in the `TD` array near the top of `src/App.jsx`. Each entry is:
-
-```js
-["CODE", "Team Name", "Group", "Confederation", "🇫🇱", "#color1", "#color2", [
-  "Player 1", ..., "Player 18"   // 18 players per team
-]]
-```
-
-Edit the array directly if Panini releases corrections or you spot a discrepancy.
-
-## License
-
-MIT
+</div>
