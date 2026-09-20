@@ -34,6 +34,9 @@ import paniniLigaF from "./panini-liga-f-2025-26.js";
 import paniniFrauenBl from "./panini-frauen-bundesliga-2025-26.js";
 import paniniCalciatrici from "./panini-calciatrici-2025-26.js";
 import paniniProLeague from "./panini-belgian-pro-league-2024-25.js";
+import paniniRomania from "./panini-superliga-romania-2025-26.js";
+import paniniAustria from "./panini-bundesliga-osterreich-2025-26.js";
+import paniniArgentino from "./panini-futbol-argentino-2025.js";
 import plusEredivisie from "./plus-eredivisie-2025-26.js";
 import paniniStrangerThings from "./panini-stranger-things-2025.js";
 import diramixKpop from "./diramix-kpop-demon-hunters.js";
@@ -70,6 +73,9 @@ const SPECS = Object.fromEntries([
   paniniFrauenBl,
   paniniCalciatrici,
   paniniProLeague,
+  paniniRomania,
+  paniniAustria,
+  paniniArgentino,
   plusEredivisie,
   paniniStrangerThings,
   diramixKpop,
