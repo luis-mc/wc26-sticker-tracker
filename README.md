@@ -2,12 +2,12 @@
 
 # ⚽ ALBUM '26
 
-### 13 albums. 7,874 stickers. One very determined kid.
+### 16 albums. 9,082 stickers. One very determined kid.
 
 **[👉 Open the app — ffwc26.luismc.net](https://ffwc26.luismc.net/)**
 
-![Albums](https://img.shields.io/badge/Albums-13-F4C24A?style=for-the-badge)
-![Stickers](https://img.shields.io/badge/Stickers-7,874-3ECF8E?style=for-the-badge)
+![Albums](https://img.shields.io/badge/Albums-16-F4C24A?style=for-the-badge)
+![Stickers](https://img.shields.io/badge/Stickers-9,082-3ECF8E?style=for-the-badge)
 ![Free](https://img.shields.io/badge/Price-free_forever-6FA8FF?style=for-the-badge)
 
 </div>
@@ -22,7 +22,7 @@ My kid and I bought the Panini FIFA World Cup 2026 album, and within about a wee
 
 So one weekend I built us a tracker. Now it lives at **[ffwc26.luismc.net](https://ffwc26.luismc.net/)** and other people use it too. 🎉
 
-Then it turned out the World Cup was only the start. Someone at school was doing the Premier League one. A cousin in Italy had Calciatori. So the app grew a shelf: **thirteen albums** from Panini and Topps — football across seven countries, plus the NFL and the NHL — each with its own collection, its own doubles, its own swap lists.
+Then it turned out the World Cup was only the start. Someone at school was doing the Premier League one. A cousin in Italy had Calciatori. So the app grew a shelf: **sixteen albums** from Panini and Topps — football across eight countries, plus the NFL, the NHL, the NBA and the Winter Olympics — each with its own collection, its own doubles, its own swap lists.
 
 If you're a parent, a collector, or a nine-year-old with strong opinions about foil stickers — it's free, it's yours, go finish your album.
 
@@ -83,8 +83,11 @@ Switch album from the header. Each one keeps its own collection, duplicates and 
 | Calciatori Serie BKT 2025-26 | Panini | 480 |
 | LaLiga Hypermotion 2025/26 | Panini | 473 |
 | Super League Greece 2025-26 | Panini | 470 |
+| Bundesliga 2025/26 | Topps | 362 |
 
 **🏈 American football** — Panini NFL 2025 (564) &nbsp;&nbsp; **🏒 Ice hockey** — Topps NHL 2025-26 (800)
+
+**🏀 Basketball** — Panini NBA 2024-25 (614) &nbsp;&nbsp; **🥌 Olympics** — Panini *Italia in Pista* Milano Cortina 2026 (232)
 
 Only the World Cup album carries every player name — Panini publishes that checklist in full. The rest are tracked by sticker number, with the real club pages and subsets, because that's as far as the published checklists go.
 
@@ -92,7 +95,7 @@ Only the World Cup album carries every player name — Panini publishes that che
 
 ## ✨ What it does
 
-🏆 **Thirteen albums, one shelf** — add the ones you collect, switch between them from the header, swap on whichever you've got open
+🏆 **Sixteen albums, one shelf** — add the ones you collect, switch between them from the header, swap on whichever you've got open
 
 ⚡ **Add in two taps** — team, number, in. Tells you instantly whether it's a new one or a double
 

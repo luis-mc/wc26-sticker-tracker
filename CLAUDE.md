@@ -27,9 +27,9 @@ The app tracks several albums from different publishers. Each one is a *spec* fi
 
 - `build.js` — `buildAlbum(spec)` turns a spec into the runtime shape every screen reads: `stickers`, `byId`, `units`, `sections`, `sectionMeta`, `unitOrder*`, `vocab`, `total`. Also exports `numberedPages()` for albums whose section breakdown isn't published.
 - `index.js` — `getAlbum(id)` (lazy + cached), `knownAlbum(id)`, `CATALOG` (metadata for the shelf screen), `DEFAULT_ALBUM_ID`.
-- One file per album — currently thirteen, across Panini and Topps.
+- One file per album — currently sixteen, across Panini and Topps.
 
-Every spec declares a `category` (`Football`, `American football`, `Ice hockey`, …). `CATEGORY_ORDER` in `index.js` fixes the shelf order — sports first, then `Movies & TV`, `Games`, `Music`, `Other` — and the "Add an album" browser filters and groups by it. A category a spec invents that isn't in the list still works; it just sorts last under its own heading.
+Every spec declares a `category` (`Football`, `American football`, `Ice hockey`, `Basketball`, `Olympics`, …). `CATEGORY_ORDER` in `index.js` fixes the shelf order — sports first, then `Movies & TV`, `Games`, `Music`, `Other` — and the "Add an album" browser filters and groups by it. A category a spec invents that isn't in the list still works; it just sorts last under its own heading.
 
 **Never add an album from a sticker count alone.** Published totals disagree between sources (Panini LaLiga Este 2026/27 is quoted as both 494 and "700+"; Brasileirão 2026 as both 512 and 610), and an album whose ranges don't close leaves collectors with stickers they can't record. An album may only be added when the source gives every section's number range, those ranges cover 1..total with no gap or overlap, and the total reconciles against a second source where one exists. `npm run verify:albums` enforces this — it also runs as `prebuild`, so an album that doesn't check out cannot ship. Record the checklist source in the spec's header comment. `src/albums/CANDIDATES.md` lists the albums that failed this bar and exactly what each one still needs, so the research isn't repeated.
 
