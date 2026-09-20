@@ -28,6 +28,14 @@ import toppsBundesliga from "./topps-bundesliga-2025-26.js";
 import paniniTdf2026 from "./panini-tour-de-france-2026.js";
 import paniniBluey from "./panini-bluey-funny-yummy.js";
 import paniniWsl2026 from "./panini-wsl-2026.js";
+import paniniLibertadores from "./panini-libertadores-2026.js";
+import paniniBrasileirao from "./panini-brasileirao-2026.js";
+import paniniLigaF from "./panini-liga-f-2025-26.js";
+import diramixKpop from "./diramix-kpop-demon-hunters.js";
+import diramixOnePiece from "./diramix-one-piece-2026.js";
+import paniniPeanuts from "./panini-peanuts-2026.js";
+import paniniToyStory5 from "./panini-toy-story-5.js";
+import paniniStitchAngel from "./panini-stitch-and-angel.js";
 
 export const DEFAULT_ALBUM_ID = paniniWc26.id;
 
@@ -51,6 +59,14 @@ const SPECS = Object.fromEntries([
   paniniTdf2026,
   paniniBluey,
   paniniWsl2026,
+  paniniLibertadores,
+  paniniBrasileirao,
+  paniniLigaF,
+  diramixKpop,
+  diramixOnePiece,
+  paniniPeanuts,
+  paniniToyStory5,
+  paniniStitchAngel,
 ].map(s => [s.id, s]));
 
 const built = {};
