@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "verify:albums": "node scripts/verify-albums.mjs",
+    "prebuild": "node scripts/verify-albums.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

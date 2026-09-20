@@ -2,12 +2,12 @@
 
 # ⚽ ALBUM '26
 
-### 980 stickers. 48 nations. One very determined kid.
+### 13 albums. 7,874 stickers. One very determined kid.
 
 **[👉 Open the app — ffwc26.luismc.net](https://ffwc26.luismc.net/)**
 
-![Stickers](https://img.shields.io/badge/Stickers-980-F4C24A?style=for-the-badge)
-![Teams](https://img.shields.io/badge/Nations-48-3ECF8E?style=for-the-badge)
+![Albums](https://img.shields.io/badge/Albums-13-F4C24A?style=for-the-badge)
+![Stickers](https://img.shields.io/badge/Stickers-7,874-3ECF8E?style=for-the-badge)
 ![Free](https://img.shields.io/badge/Price-free_forever-6FA8FF?style=for-the-badge)
 
 </div>
@@ -21,6 +21,8 @@ This started as a pet project.
 My kid and I bought the Panini FIFA World Cup 2026 album, and within about a week we were drowning. Piles of doubles on the kitchen table. A crumpled paper checklist that was already wrong. Standing in a shop with a packet in hand, squinting at a phone, going *"do we have MEX 14 or not?"*
 
 So one weekend I built us a tracker. Now it lives at **[ffwc26.luismc.net](https://ffwc26.luismc.net/)** and other people use it too. 🎉
+
+Then it turned out the World Cup was only the start. Someone at school was doing the Premier League one. A cousin in Italy had Calciatori. So the app grew a shelf: **thirteen albums** from Panini and Topps — football across seven countries, plus the NFL and the NHL — each with its own collection, its own doubles, its own swap lists.
 
 If you're a parent, a collector, or a nine-year-old with strong opinions about foil stickers — it's free, it's yours, go finish your album.
 
@@ -36,7 +38,7 @@ Open the app and the whole album is right there: how many you've got, how many y
 
 ### Add stickers as fast as you can open packets
 
-Tap a nation, tap a number. Done. No menus, no forms, no typing. Fast enough to keep up with a kid tearing through five packets in a row.
+Tap a team, tap a number. Done. No menus, no forms, no typing. Fast enough to keep up with a kid tearing through five packets in a row.
 
 ![Add stickers](docs/screenshots/add.jpg)
 
@@ -62,23 +64,49 @@ No more spreading 200 stickers across the floor to figure out who needs what.
 
 ---
 
+## 📚 The shelf
+
+Switch album from the header. Each one keeps its own collection, duplicates and swap lists — and your friends carry across all of them.
+
+**⚽ Football**
+
+| Album | Publisher | Stickers |
+|---|---|---|
+| FIFA World Cup 26 | Panini | 980 |
+| EFL 2025/26 | Panini | 788 |
+| Calciatori 2025-26 *(Serie A)* | Panini | 618 |
+| UEFA Champions League 2025/26 | Topps | 574 |
+| Premier League 2026 | Topps | 561 |
+| Foot Ligue 1 2025-26 | Panini | 556 |
+| FIFA 365 2026 | Panini | 524 |
+| Futebol 2025-26 *(Liga BetClic)* | Panini | 486 |
+| Calciatori Serie BKT 2025-26 | Panini | 480 |
+| LaLiga Hypermotion 2025/26 | Panini | 473 |
+| Super League Greece 2025-26 | Panini | 470 |
+
+**🏈 American football** — Panini NFL 2025 (564) &nbsp;&nbsp; **🏒 Ice hockey** — Topps NHL 2025-26 (800)
+
+Only the World Cup album carries every player name — Panini publishes that checklist in full. The rest are tracked by sticker number, with the real club pages and subsets, because that's as far as the published checklists go.
+
+---
+
 ## ✨ What it does
 
-🏆 **All 980 stickers, real names** — 9 intro foils, 11 FIFA Museum foils, and 48 nations × 20, with the actual player names off the official checklist
+🏆 **Thirteen albums, one shelf** — add the ones you collect, switch between them from the header, swap on whichever you've got open
 
-⚡ **Add in two taps** — nation, number, in. Tells you instantly whether it's a new one or a double
+⚡ **Add in two taps** — team, number, in. Tells you instantly whether it's a new one or a double
 
 🎁 **Give Away mode** — hand a spare to a friend and take it off your pile in one tap
 
 🔍 **Check mode** — the shop-aisle lifesaver. "Do we already have this one?" Answered in a second
 
-📊 **Progress that motivates** — completion percentage, group-by-group bars, and the nations you're closest to finishing
+📊 **Progress that motivates** — completion percentage, group-by-group bars, and the teams you're closest to finishing
 
 🤝 **Swap matching** — automatic overlap of your needs and their spares, with a ready-to-send WhatsApp or email message
 
 📄 **PDF lists** — export your missing / collected / duplicate lists to a clean A4 sheet. Print it, fold it, stick it in the album
 
-☁️ **Follows you everywhere** — phone in the shop, tablet on the sofa, laptop at the table. Same collection, always in sync
+☁️ **Follows you everywhere** — phone in the shop, tablet on the sofa, laptop at the table. Same collections, always in sync
 
 🔒 **You choose what's shared** — show your doubles but hide your missing list, or share nothing at all. Your call
 
@@ -97,7 +125,7 @@ That's it. No app store, no install, no cost.
 
 ## 🛠️ For the tinkerers
 
-Built with React 18, Vite and Firebase. Everything lives in `src/App.jsx` — sticker data, components, the lot.
+Built with React 18, Vite and Firebase. The UI lives in `src/App.jsx`; every album is a data file in `src/albums/`.
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/wc26-sticker-tracker.git
@@ -105,10 +133,42 @@ cd wc26-sticker-tracker
 npm install
 cp .env.example .env.local   # your Firebase config goes here
 npm run dev
+npm run verify:albums        # checks every album's checklist adds up
 ```
 
 <details>
-<summary><strong>Album structure & customising the checklist</strong></summary>
+<summary><strong>Adding an album</strong></summary>
+
+One file in `src/albums/`, one line in `index.js`. Sections hold units, units hold stickers:
+
+```js
+export default {
+  id: "topps-pl-2026", publisher: "Topps", title: "Premier League 2026",
+  shortTitle: "PREMIER LEAGUE", year: 2026, category: "Football",
+  total: 561, status: "numbered",
+  vocab: { unit: "Club", unitPlural: "Clubs", section: "Section", sectionPlural: "Sections" },
+  sections: [
+    { id: "CLUB", label: "Clubs", short: "CLUBS", color: "--p2", units: [
+      { code: "ARS", name: "Arsenal", from: 17, to: 42, c1: "#EF0107" },
+      // …
+    ]},
+    { id: "★", label: "Features", short: "★ FEATURES", color: "--gold", special: true, units: [
+      { code: "HOF", name: "Hall of Fame", from: 5, to: 16, foil: true },
+    ]},
+  ],
+};
+```
+
+A unit's stickers can be authored three ways: `from`/`to` for numbered checklists, an explicit `stickers: [[id, label]]` list, or a `roster` of names driving the album's `slotTemplate` (that's how the World Cup album gets a real name on every sticker).
+
+**The rule: never add an album from a sticker count alone.** Published totals disagree between sources — LaLiga Este 2026/27 is quoted as both 494 and "700+", Brasileirão 2026 as both 512 and 610 — and an album whose ranges don't close leaves collectors with stickers they can't record. An album goes in only when the checklist gives every section's number range, those ranges cover `1..total` with no gap or overlap, and the total reconciles against a second source. Put the checklist source in the file's header comment.
+
+`npm run verify:albums` enforces all of that — contiguous numbering, unique ids and unit codes, no empty or undisplayed sections, no unnamed player slots. It runs as `prebuild`, so an album that doesn't check out can't ship.
+
+</details>
+
+<details>
+<summary><strong>The World Cup album's structure</strong></summary>
 
 **980 stickers:**
 
@@ -121,7 +181,7 @@ npm run dev
 
 Per team: `#1` Team Logo (foil) · `#2–12` Players · `#13` Team Photo · `#14–20` Players
 
-**Fixing a name?** Player names live in the `TD` array near the top of `src/App.jsx`:
+**Fixing a name?** Player names live in the `TD` array in `src/albums/panini-wc26.js`:
 
 ```js
 ["CODE", "Team Name", "Group", "Confederation", "🇫🇱", "#color1", "#color2", [
@@ -139,12 +199,12 @@ Edit it directly if Panini issues a correction or you spot a typo. PRs welcome.
 From Firebase Console → Project Settings → Your Apps → Web app config:
 
 ```
-VITE_API_KEY=...
-VITE_AUTH_DOMAIN=...
-VITE_PROJECT_ID=...
-VITE_STORAGE_BUCKET=...
-VITE_MESSAGING_SENDER_ID=...
-VITE_APP_ID=...
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
 ```
 
 Then `npm run build && firebase deploy`.
@@ -155,7 +215,7 @@ Then `npm run build && firebase deploy`.
 
 <div align="center">
 
-**Not affiliated with Panini or FIFA.** Just a dad, a kid, and 253 stickers still to go.
+**Not affiliated with Panini, Topps, FIFA, the NFL or the NHL.** Just a dad, a kid, and 253 stickers still to go.
 
 MIT · [ffwc26.luismc.net](https://ffwc26.luismc.net/)
 

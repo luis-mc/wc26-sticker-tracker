@@ -19,29 +19,45 @@ Copy `.env.example` to `.env.local` and fill in Firebase project values (API key
 
 ## Architecture
 
-This is a React 18 + Vite SPA with a single source file: **`src/App.jsx`** contains all components, sticker data, and Firestore helpers. `src/firebase.js` initialises Firebase and exports Auth/Firestore primitives.
+This is a React 18 + Vite SPA. **`src/App.jsx`** holds every component and the Firestore helpers; **`src/albums/`** holds the sticker data for each album the app can track. `src/firebase.js` initialises Firebase and exports Auth/Firestore primitives.
 
-### Sticker data
+### Albums
 
-All 980 stickers are defined as constants near the top of `App.jsx`:
-- `INTRO` (9 foils), `MUSEUM` (11 foils): special stickers
-- `TD`: array of 48 team entries `[code, name, group, conf, flag, c1, c2, [18 player names]]`
-- `ALL`: flat array of 980 sticker objects built from the above, each with `id`, `n` (global number 1–980), `slot` (1–20 within team), `kind` (`emblem`/`squad`/`player`/`special`), `foil`, and colour fields
+The app tracks several albums from different publishers. Each one is a *spec* file in `src/albums/`, registered in `src/albums/index.js`:
 
-Per-team sticker slots: #1 = Team Logo (foil), #2–12 = Players, #13 = Team Photo, #14–20 = Players. Player index mapping: `slot ≤ 12 → players[slot-2]`, `slot ≥ 14 → players[slot-3]`.
+- `build.js` — `buildAlbum(spec)` turns a spec into the runtime shape every screen reads: `stickers`, `byId`, `units`, `sections`, `sectionMeta`, `unitOrder*`, `vocab`, `total`. Also exports `numberedPages()` for albums whose section breakdown isn't published.
+- `index.js` — `getAlbum(id)` (lazy + cached), `knownAlbum(id)`, `CATALOG` (metadata for the shelf screen), `DEFAULT_ALBUM_ID`.
+- One file per album — currently thirteen, across Panini and Topps.
+
+Every spec declares a `category` (`Football`, `American football`, `Ice hockey`, …). `CATEGORY_ORDER` in `index.js` fixes the shelf order — sports first, then `Movies & TV`, `Games`, `Music`, `Other` — and the "Add an album" browser filters and groups by it. A category a spec invents that isn't in the list still works; it just sorts last under its own heading.
+
+**Never add an album from a sticker count alone.** Published totals disagree between sources (Panini LaLiga Este 2026/27 is quoted as both 494 and "700+"; Brasileirão 2026 as both 512 and 610), and an album whose ranges don't close leaves collectors with stickers they can't record. An album may only be added when the source gives every section's number range, those ranges cover 1..total with no gap or overlap, and the total reconciles against a second source where one exists. `npm run verify:albums` enforces this — it also runs as `prebuild`, so an album that doesn't check out cannot ship. Record the checklist source in the spec's header comment.
+
+Spec vocabulary is publisher-neutral: a **section** is a band of the album (a World Cup group, "Clubs", "Specials"), a **unit** is one page inside it (a nation, a club, a subset), and a **slot** is the sticker's position in its unit. A unit's stickers are authored one of three ways — `roster` + the album's `slotTemplate` (named team pages), `from`/`to` (numbered checklists), or an explicit `stickers: [[id, label]]` list. `special: true` on a section keeps its units out of "teams completed" counts.
+
+Sticker objects carry `id`, `n` (global number), `slot`, `kind`, `label`, `foil`, colour fields and the pre-computed display strings `fullCode` / `dispCode` / `slotLabel`, so no screen needs to know how a sticker was authored.
+
+Panini WC26 specifics: 9 intro foils + 11 FIFA Museum foils + 48 nations × 20. Per nation: #1 Team Logo (foil), #2–12 players, #13 Team Photo, #14–20 players.
+
+### Album context
+
+`AlbumCtx` / `useAlbum()` in `App.jsx` provide the open album to every screen — components read `A.stickers`, `A.units`, `A.sections`, `A.vocab` rather than any album-specific constant. `openAlbum(id)` swaps the working set and drops the `hydrated` gate while the new collection loads.
 
 ### Firestore schema
 
-- **Private** `/users/{uid}/data/{key}` — wraps value in `{ v: ... }`. Keys: `"profile"`, `"collection"`, `"share_prefs"`, `"friends"`
-- **Public** `/public/user:{handle}` — stores the serialised shared snapshot (owned/missing/dupes lists, counts, prefs)
+- **Private** `/users/{uid}/data/{key}` — wraps value in `{ v: ... }`. Keys: `"profile"` (includes `albums[]` + `activeAlbum`), `"collection"`, `"share_prefs"`, `"friends"`
+- **Public** `/public/user:{handle}` — identity + album index (`albums: { [albumId]: summary }`)
+- **Public** `/public/user:{handle}:{albumId}` — that album's shared lists (owned/missing/dupes, counts, prefs)
 
-The `load(k, sh)` / `save(k, v, sh)` helpers in `App.jsx` abstract all Firestore access. `sh=true` routes to the public collection.
+Keys are album-scoped through `dataKey(k, albumId)` / `cacheKey(k, albumId)`: the default album (`panini-wc26`) keeps the original unsuffixed keys, so collections saved before multi-album support need no migration. `legacyLists()` reads a friend's pre-multi-album public doc as that album's snapshot.
+
+The `load(k, sh)` / `save(k, v, sh)` helpers abstract all Firestore access; `sh=true` routes to the public collection. `publishPublic(docId, snapshot)` takes a full public doc id.
 
 ### App phases
 
-Auth state drives a `phase` variable: `"loading"` → `"auth"` (Google sign-in) → `"setup"` (choose handle, first-time only) → `"app"` (main UI).
+Auth state drives a `phase` variable: `"loading"` → `"auth"` (email + password) → `"verify"` (email verification) → `"setup"` (choose handle, first-time only) → `"app"` (main UI).
 
-Collection changes auto-save to Firestore with a 700 ms debounce (also republishes the public snapshot via `pub()`).
+Collection changes auto-save to Firestore with a 700 ms debounce (also republishing the album snapshot and the identity index).
 
 ### Styling
 
