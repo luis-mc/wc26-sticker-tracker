@@ -7,6 +7,10 @@
    Tracked by sticker number — Topps publishes the per-club ranges but
    not a public per-sticker name list, so the album is "numbered".
    Checklist ranges: Football Cartophilic Info Exchange (Jan 2026).
+   Confirmed against laststicker.com (Sept 2026): its numbered run is
+   1–561 with no gap and every club range matches. Stickers.app's 583
+   additionally counts 20 sticker-cards and 2 others that sit outside
+   the numbering.
    ================================================================== */
 
 /* [code, club, first number, primary colour] — 26 stickers each, in

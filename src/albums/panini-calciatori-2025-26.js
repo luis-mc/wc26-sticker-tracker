@@ -7,6 +7,10 @@
 
    Verified: 43 + 440 + 60 + 30 + 45 = 618, numbering contiguous 1–618.
    Ranges: Football Cartophilic Info Exchange (Nov 2025).
+
+   Confirmed against laststicker.com (Sept 2026): its plain numbered run
+   is 1–618 with no gap. Its 804 total adds 186 items outside the base
+   album — 80 UPG update stickers, 60 CEL, 20 STY, 20 variants and 6 K.
    ================================================================== */
 
 /* [code, club, first number, primary colour] — 22 stickers each */

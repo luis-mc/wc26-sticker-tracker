@@ -6,6 +6,13 @@
 
    Verified: 16 + 432 + 24 + 12 + 193 + 15 + 96 = 788, numbering
    contiguous 1–788. Ranges: Football Cartophilic Info Exchange (Nov 2025).
+
+   Confirmed against laststicker.com (Sept 2026), which lists 812: its
+   checklist holds 716 plain numbers plus 72 shared League Two stickers
+   whose ids span two clubs at once (695A-738A), which is 788, and then
+   24 glitter parallels (21g, 47g …) that are not album slots. The League
+   Two block is modelled here as a flat 693–788 run because the shared
+   stickers have no single owning club.
    ================================================================== */
 
 /* Championship — 18 stickers each, split around the Elites spread */
