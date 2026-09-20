@@ -10,6 +10,10 @@
      6. template albums give every unit a full page of slots, with no
         "Player 12" placeholder left where a real name should be
      7. required display metadata is present
+     8. the built album is renderable: every sticker carries the display
+        strings and a valid colour, byId agrees with the sticker list, no
+        two units in a section share a name, and no unit name is long
+        enough to wreck the album rows
    ================================================================== */
 
 import { CATALOG, getAlbum } from "../src/albums/index.js";
@@ -98,6 +102,28 @@ for (const entry of CATALOG) {
   for (const s of A.stickers) {
     if (!s.label) { problems.push(`sticker ${s.id} has no label`); break; }
     if (!s.fullCode) { problems.push(`sticker ${s.id} has no display code`); break; }
+  }
+
+  // 8. renderable
+  const HEX = /^#[0-9A-Fa-f]{6}$/;
+  const UNIT_NAME_MAX = 40;   // longer than this and the album row wraps badly
+  for (const s of A.stickers) {
+    if (!s.dispCode || !s.slotLabel) { problems.push(`sticker ${s.id} has no display label`); break; }
+    if (!HEX.test(s.c1)) { problems.push(`sticker ${s.id} has a malformed colour "${s.c1}"`); break; }
+    if (A.byId[s.id] !== s) { problems.push(`byId does not resolve ${s.id} to its own sticker`); break; }
+  }
+  if (Object.keys(A.byId).length !== A.stickers.length) problems.push("byId does not cover every sticker");
+  for (const [secId, bucket] of Object.entries(A.sections)) {
+    const names = Object.keys(bucket).map(c => A.units[c].name);
+    const dupe = names.find((n, i) => names.indexOf(n) !== i);
+    if (dupe) problems.push(`section "${secId}" has two units named "${dupe}"`);
+  }
+  for (const code of A.unitOrder) {
+    const n = A.units[code].name;
+    if (n.length > UNIT_NAME_MAX) problems.push(`unit ${code} name is ${n.length} chars, over the ${UNIT_NAME_MAX} the album row fits`);
+  }
+  for (const code of A.unitOrderMain) {
+    if (A.sectionMeta[A.units[code].group].special) problems.push(`unit ${code} is in a special section but counts towards completion`);
   }
 
   rows.push({ id: entry.id, total: A.total, units: A.unitOrder.length,

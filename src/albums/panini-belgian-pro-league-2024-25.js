@@ -39,14 +39,14 @@ const PRO_LEAGUE = [
 /* Four clubs to a page: two badges then four team photos. */
 const CHALLENGER = [
   ["CP1", "Beveren · NXT · Deinze · Eupen",                    418],
-  ["CP2", "Francs Borains · Jong Genk · RAAL · Liège",        424],
-  ["CP3", "Lierse · Lokeren-Temse · Lommel · Patro Eisden",     430],
-  ["CP4", "RSCA Futures · RWDM · Seraing · Zulte Waregem",     436],
+  ["CP2", "Borains · Jong Genk · RAAL · Liège",  424],
+  ["CP3", "Lierse · Lokeren · Lommel · Patro",   430],
+  ["CP4", "RSCA Futures · RWDM · Seraing · Zulte", 436],
 ];
 
 const SUPER_LEAGUE = [
-  ["SL1", "RSCA Women · Club YLA · Genk Ladies · Gent Ladies",  442],
-  ["SL2", "OHL Women · Standard Fémina · Westerlo · Essevee",  448],
+  ["SL1", "RSCA · Club YLA · Genk · Gent",       442],
+  ["SL2", "OHL · Standard · Westerlo · Essevee", 448],
 ];
 
 export default {
