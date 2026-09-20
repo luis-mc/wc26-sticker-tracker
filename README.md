@@ -2,12 +2,12 @@
 
 # ⚽ ALBUM '26
 
-### 16 albums. 9,082 stickers. One very determined kid.
+### 38 albums. 16,657 stickers. One very determined kid.
 
 **[👉 Open the app — ffwc26.luismc.net](https://ffwc26.luismc.net/)**
 
-![Albums](https://img.shields.io/badge/Albums-16-F4C24A?style=for-the-badge)
-![Stickers](https://img.shields.io/badge/Stickers-9,082-3ECF8E?style=for-the-badge)
+![Albums](https://img.shields.io/badge/Albums-38-F4C24A?style=for-the-badge)
+![Stickers](https://img.shields.io/badge/Stickers-16,657-3ECF8E?style=for-the-badge)
 ![Free](https://img.shields.io/badge/Price-free_forever-6FA8FF?style=for-the-badge)
 
 </div>
@@ -68,26 +68,44 @@ No more spreading 200 stickers across the floor to figure out who needs what.
 
 Switch album from the header. Each one keeps its own collection, duplicates and swap lists — and your friends carry across all of them.
 
-**⚽ Football**
+**⚽ Football** — 24 albums
 
 | Album | Publisher | Stickers |
 |---|---|---|
 | FIFA World Cup 26 | Panini | 980 |
 | EFL 2025/26 | Panini | 788 |
 | Calciatori 2025-26 *(Serie A)* | Panini | 618 |
+| Brasileirão 2026 | Panini | 610 |
 | UEFA Champions League 2025/26 | Topps | 574 |
+| Fútbol Argentino 2025 | Panini | 567 |
 | Premier League 2026 | Topps | 561 |
 | Foot Ligue 1 2025-26 | Panini | 556 |
 | FIFA 365 2026 | Panini | 524 |
+| CONMEBOL Libertadores 2026 | Panini | 523 |
+| Barclays Women's Super League 2026 | Panini | 511 |
 | Futebol 2025-26 *(Liga BetClic)* | Panini | 486 |
 | Calciatori Serie BKT 2025-26 | Panini | 480 |
 | LaLiga Hypermotion 2025/26 | Panini | 473 |
 | Super League Greece 2025-26 | Panini | 470 |
+| Belgian Pro League 2024/25 | Panini | 463 |
+| Liga F Moeve 2025/26 *(Spain, women)* | Panini | 432 |
+| Frauen-Bundesliga 2025/26 | Panini | 420 |
+| Bundesliga Österreich 2025/26 | Panini | 399 |
+| SuperSport HNL 2025/26 *(Croatia)* | Panini | 363 |
 | Bundesliga 2025/26 | Topps | 362 |
+| Calciatrici 2025/26 *(Serie A, women)* | Panini | 351 |
+| Superliga României 2025/26 | Panini | 344 |
+| Eredivisie 2025/26 | PLUS | 292 |
 
-**🏈 American football** — Panini NFL 2025 (564) &nbsp;&nbsp; **🏒 Ice hockey** — Topps NHL 2025-26 (800)
+**🏒 Ice hockey** — Topps NHL 2025-26 (800) &nbsp;&nbsp; **🏀 Basketball** — Panini NBA 2024-25 (614)
 
-**🏀 Basketball** — Panini NBA 2024-25 (614) &nbsp;&nbsp; **🥌 Olympics** — Panini *Italia in Pista* Milano Cortina 2026 (232)
+**🏈 American football** — Panini NFL 2025 (564) &nbsp;&nbsp; **🚴 Cycling** — Panini Tour de France 2026 (354)
+
+**🏉 Rugby** — Panini Top 14 2025/26 (336) &nbsp;&nbsp; **🥌 Olympics** — Panini *Italia in Pista* Milano Cortina 2026 (232)
+
+**🏎️ Motorsport** — Topps Formula 1 2025 (156)
+
+**🎬 Movies & TV** — Panini Peanuts *A Year to Remember* (286), Stranger Things (211), Diramix K-Pop Demon Hunters (196), Panini Bluey *Funny Yummy!* / Toy Story 5 / Stitch & Angel (192 each), Diramix One Piece (185)
 
 Only the World Cup album carries every player name — Panini publishes that checklist in full. The rest are tracked by sticker number, with the real club pages and subsets, because that's as far as the published checklists go.
 
@@ -95,7 +113,7 @@ Only the World Cup album carries every player name — Panini publishes that che
 
 ## ✨ What it does
 
-🏆 **Sixteen albums, one shelf** — add the ones you collect, switch between them from the header, swap on whichever you've got open
+🏆 **Thirty-eight albums, one shelf** — add the ones you collect, switch between them from the header, swap on whichever you've got open
 
 ⚡ **Add in two taps** — team, number, in. Tells you instantly whether it's a new one or a double
 
