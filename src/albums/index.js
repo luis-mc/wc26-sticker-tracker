@@ -25,6 +25,9 @@ import paniniNfl2025 from "./panini-nfl-2025.js";
 import paniniNba2425 from "./panini-nba-2024-25.js";
 import paniniMilanoCortina from "./panini-milano-cortina-2026.js";
 import toppsBundesliga from "./topps-bundesliga-2025-26.js";
+import paniniTdf2026 from "./panini-tour-de-france-2026.js";
+import paniniBluey from "./panini-bluey-funny-yummy.js";
+import paniniWsl2026 from "./panini-wsl-2026.js";
 
 export const DEFAULT_ALBUM_ID = paniniWc26.id;
 
@@ -45,6 +48,9 @@ const SPECS = Object.fromEntries([
   paniniNba2425,
   paniniMilanoCortina,
   toppsBundesliga,
+  paniniTdf2026,
+  paniniBluey,
+  paniniWsl2026,
 ].map(s => [s.id, s]));
 
 const built = {};

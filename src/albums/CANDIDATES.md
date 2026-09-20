@@ -10,12 +10,19 @@ drop the ranges into a spec, run `npm run verify:albums`, done.
 
 Researched September 2026.
 
-**Three candidates graduated on a second pass** — Topps Bundesliga 2025/26,
-Panini NBA 2024-25 and Panini *Italia in Pista* Milano Cortina 2026. Their
-checklists were always public; the sites holding them (laststicker.com, TCDB)
-just return HTTP 403 to automated fetching. Loading the same public page in a
-browser gives the full per-sticker list. **Try that before giving up on
-anything below.**
+**Six candidates have now graduated**, all the same way — Topps Bundesliga
+2025/26, Panini NBA 2024-25, Panini *Italia in Pista* Milano Cortina 2026,
+and on a third pass Panini Tour de France 2026, Panini Bluey *Funny Yummy!*
+and Panini Barclays WSL 2026. Their checklists were always public; the sites
+holding them (laststicker.com, TCDB) just return HTTP 403 to automated
+fetching. Loading the same public page in a browser gives the full
+per-sticker list. **Try that before giving up on anything below.**
+
+Two of the three latest were blocked by a *misreading*, not by missing data:
+Arsenal's "69 stickers" was the club's own 33-sticker page plus every other
+sticker whose title merely names Arsenal, and Tour de France's duplicate
+misspelled teams were the men's and women's squads of the same sponsor. When
+a section list looks malformed, read the numbers before trusting the labels.
 
 ## Football
 
@@ -25,7 +32,6 @@ anything below.**
 | **Panini Brasileirão 2026** | 512 per Panini BR (610 per Stickers.app). 19 per Série A club × 20, 3 per Série B club × 20, Feminino 18, Mascotes 20, "São eles!" 11, Jogão 11, Homens-Gol 10 — sums to 510 | The numbering. A *tabela de figurinhas* PDF would close it |
 | **Panini CONMEBOL Libertadores 2026** | 443 per Panini (521 per Stickers.app); 32 teams across 8 groups; 35 holographic + 40 transparent; 80 cards | Per-team ranges; totals disagree |
 | **Panini Liga F 2025/26** (ES women) | Structure closes cleanly at **380** contiguous: 1 intro, 16 clubs × 20 (2–321), Focus 322–326, Energy 327–353, Flow 354–362, Feeling 363–371, Fresh 372–380, plus unnumbered Premium ×11 and Maxipremium ×1 | A second source says 430. Unresolved ~50-sticker gap |
-| **Panini Barclays WSL 2026** | 511, contiguous: 1 welcome, 12 WSL clubs, "This Is…" 236–247, WSL2 welcome 446–457, WSL2 clubs paired 458–505, season opener 506–511 | Arsenal reads 69 stickers where the other 11 clubs have 33; WSL2's 12 clubs are paged in pairs of 8. Needs a second source before the split can be trusted |
 | **Panini Pro League** (BE) | 2024-25 documented: 453 stickers + 10 cards, 72 pages | No 2025-26 checklist published yet |
 | NL, TR, PL, CH, AT, DK, HR, Scotland (SPFL) | — | No current-season league sticker checklist found at all. Scotland only has a 50-sticker Panini/M&S *national team* set |
 
@@ -34,18 +40,22 @@ anything below.**
 | Album | What's known | What's missing |
 |---|---|---|
 | **Topps MLB Sticker Collection** | "300 of the best stars" — veterans, rookies, mascots; 32-page album | No structure, no ranges, current year unclear |
-| **Panini Tour de France 2026** | 354 per laststicker, which also has the full per-sticker list; 22 teams; 72 special foils | Publisher quotes 325 *and* 336. laststicker's section list has duplicate misspelled teams ("Lidl - Trek" / "Lidl-Trek"), so team boundaries need care — recoverable with an hour's work |
 | Rugby / cricket / AFL / NRL | — | No 2026 sticker album found |
 
 ## Entertainment
 
 Totals are published, the section layout never is. The bigger risk: kids'
 albums often number their special stickers separately (`A1`–`A40` style), so
-even the id scheme can't be assumed.
+even the id scheme can't be assumed. Bluey *Funny Yummy!* turned out to do
+exactly that — 1–181 plus X1–X11 — which is why its 192 only made sense once
+the checklist was read. Assume the others do too until shown otherwise.
+
+Panini has three Bluey albums that all total **192** (2024, *Play with
+Friends!* 2025, *Funny Yummy!* 2026), so for any of these a bare total from a
+source that doesn't name the album by title proves nothing.
 
 | Album | Total | Note |
 |---|---|---|
-| Panini Bluey *(Play With Friends)* | 192 | Publisher-confirmed total for the **2026** album. laststicker lists a *2024* Bluey album also at 192 — confirm which is which before using its checklist |
 | Diramix One Piece (Netflix) | 185 or 200 | Sources disagree |
 | Panini Peanuts | 286 | Stickers.app only |
 | Panini Harry Potter *Always* | 236 | Stickers.app only |
